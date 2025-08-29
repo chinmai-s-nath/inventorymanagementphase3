@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import com.litmus7.inventorymanagement.dto.*;
 import com.litmus7.inventorymanagement.file.FileManagement;
-import com.litmus7.inventorymanagement.util.ConnectionUtil;
 
 public class InventoryManagementDAO {
 	
