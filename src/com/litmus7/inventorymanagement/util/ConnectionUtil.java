@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -70,4 +71,9 @@ public class ConnectionUtil {
         }
         return connection;
     }
+
+	public PreparedStatement prepareStatement(String query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
