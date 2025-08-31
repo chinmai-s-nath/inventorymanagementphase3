@@ -19,8 +19,8 @@ public class FileProcessing implements Runnable {
     public InventoryManagementDTO inventoryDTO;
     public InventoryManagementDAO inventoryDAO = new InventoryManagementDAO();
 
-    static File processedFolder = new File("E:\\Eclipse workspace\\InventoryManagementPhase2\\inventory feed\\processed");
-    static File errorFolder = new File("E:\\Eclipse workspace\\InventoryManagementPhase2\\inventory feed\\error");
+    static File processedFolder = new File("E:\\Eclipse workspace\\InventoryManagementPhase3\\inventory feed\\processed");
+    static File errorFolder = new File("E:\\Eclipse workspace\\InventoryManagementPhase3\\inventory feed\\error");
 
     private final File file;
 
@@ -71,7 +71,7 @@ public class FileProcessing implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		dbConnect.commit();
+		//dbConnect.commit();
 		try {
 			Files.move(file.toPath(),
 			        Paths.get(processedFolder.getAbsolutePath(), file.getName()),
@@ -84,12 +84,12 @@ public class FileProcessing implements Runnable {
 		
 		}
 		catch (SQLException e) {
-		try {
-			dbConnect.rollback();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} // rollback entire file
+//		try {
+//			dbConnect.rollback();
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} // rollback entire file
 		try {
 			bufferedReader.close();
 		} catch (IOException e1) {
@@ -102,5 +102,6 @@ public class FileProcessing implements Runnable {
 		System.out.println("Error while processesing: " + file.getName()+"\nTransaction rolled back");
 		
 		}catch (Exception ea) {}
+		
     }
 }}
